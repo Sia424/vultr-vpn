@@ -1,0 +1,23 @@
+{
+  "proxies": [
+    {
+      "name": "Personal-VLESS",
+      "type": "vless",
+      "server": "192.0.2.123",
+      "port": 443,
+      "uuid": "<UUID>",
+      "flow": "xtls-rprx-vision",
+      "network": "tcp",
+      "udp": true,
+      "packet-encoding": "xudp",
+      "tls": true,
+      "servername": "www.cloudflare.com",
+      "client-fingerprint": "chrome",
+      "reality-opts": {
+        "public-key": "<REALITY_PUBLIC_KEY>",
+        "short-id": "<SHORT_ID>",
+        "support-x25519mlkem768": true
+      }
+    }
+  ]
+}

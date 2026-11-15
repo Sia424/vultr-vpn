@@ -1,0 +1,69 @@
+{
+  "mode": "rule",
+  "ipv6": false,
+  "allow-lan": false,
+  "geodata-mode": false,
+  "proxies": [
+    {
+      "name": "Personal-VLESS",
+      "type": "vless",
+      "server": "192.0.2.123",
+      "port": 443,
+      "uuid": "<UUID>",
+      "flow": "xtls-rprx-vision",
+      "network": "tcp",
+      "udp": true,
+      "packet-encoding": "xudp",
+      "tls": true,
+      "servername": "www.cloudflare.com",
+      "client-fingerprint": "chrome",
+      "reality-opts": {
+        "public-key": "<REALITY_PUBLIC_KEY>",
+        "short-id": "<SHORT_ID>",
+        "support-x25519mlkem768": true
+      }
+    }
+  ],
+  "proxy-groups": [
+    {
+      "name": "PROXY",
+      "type": "select",
+      "proxies": [
+        "Personal-VLESS"
+      ]
+    }
+  ],
+  "rules": [
+    "DOMAIN,localhost,DIRECT",
+    "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
+    "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
+    "IP-CIDR6,::1/128,DIRECT,no-resolve",
+    "DOMAIN-SUFFIX,google.com,PROXY",
+    "DOMAIN-SUFFIX,google.cn,PROXY",
+    "DOMAIN-SUFFIX,googleapis.com,PROXY",
+    "DOMAIN-SUFFIX,googleapis.cn,PROXY",
+    "DOMAIN-SUFFIX,gstatic.com,PROXY",
+    "DOMAIN-SUFFIX,googleusercontent.com,PROXY",
+    "DOMAIN-SUFFIX,ggpht.com,PROXY",
+    "DOMAIN-SUFFIX,gvt1.com,PROXY",
+    "DOMAIN-SUFFIX,gvt2.com,PROXY",
+    "DOMAIN-SUFFIX,youtube.com,PROXY",
+    "DOMAIN-SUFFIX,youtu.be,PROXY",
+    "DOMAIN-SUFFIX,ytimg.com,PROXY",
+    "DOMAIN-SUFFIX,googlevideo.com,PROXY",
+    "DOMAIN-SUFFIX,openai.com,PROXY",
+    "DOMAIN-SUFFIX,chatgpt.com,PROXY",
+    "DOMAIN-SUFFIX,oaistatic.com,PROXY",
+    "DOMAIN-SUFFIX,oaiusercontent.com,PROXY",
+    "DOMAIN-SUFFIX,anthropic.com,PROXY",
+    "DOMAIN-SUFFIX,claude.ai,PROXY",
+    "DOMAIN-SUFFIX,telegram.org,PROXY",
+    "DOMAIN-SUFFIX,t.me,PROXY",
+    "DOMAIN-SUFFIX,cn,DIRECT",
+    "GEOSITE,cn,DIRECT",
+    "GEOIP,CN,DIRECT",
+    "MATCH,PROXY"
+  ]
+}

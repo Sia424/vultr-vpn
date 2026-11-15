@@ -1,0 +1,23 @@
+{
+  "server": {
+    "host": "REPLACE_WITH_PUBLIC_IPV4",
+    "expected_hostname": "REPLACE_WITH_SERVER_HOSTNAME",
+    "ssh_user": "root",
+    "ssh_port": 22,
+    "ssh_key": "private/credentials/ssh-ed25519",
+    "known_hosts": "private/credentials/known_hosts"
+  },
+  "reality": {
+    "port": 443,
+    "server_name": "www.cloudflare.com"
+  },
+  "client": {
+    "node_name": "Personal-VLESS",
+    "mihomo_binary": "REPLACE_WITH_MIHOMO_BINARY_PATH",
+    "geodata_dir": "REPLACE_WITH_GEODATA_DIRECTORY",
+    "runtime_config": null
+  },
+  "paths": {
+    "artifacts_dir": "private/generated"
+  }
+}
